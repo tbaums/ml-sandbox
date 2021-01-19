@@ -64,3 +64,5 @@ Open that notebook, and enable Kale in the left-hand panel.
 Click "compile and run" and follow the link to the pipeline that gets generated.
 
 If you look at the logs for each pipeline step, you'll see that the secret is available in that step.
+
+Basically, the way pod defaults work is that before the pod gets created, there is a check to see if that pod has certain labels on it (which is why there is a matchLabels section in the PodDefault yaml). If the pod does have the labels, then the controller injects the stuff below (mounts or env vars), etc. When you launch a notebook and you select the checkbox, you are saying to the notebook launcher that you want your notebook to launch with those labels on it so the controller injects the stuff you want
