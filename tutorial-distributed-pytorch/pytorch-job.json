@@ -1,0 +1,79 @@
+{
+    "apiVersion": "kubeflow.org/v1",
+    "kind": "PyTorchJob",
+    "metadata": {
+        "name": "pytorch-dist-ranzcr-nccl",
+        "namespace": "kubeflow-user",
+    },
+    "spec": {
+        "pytorchReplicaSpecs": {
+            "Master": {
+                "replicas": 1,
+                "restartPolicy": "OnFailure",
+                "template": {
+                    "metadata": {
+                        "annotations": {
+                            "sidecar.istio.io/inject": "false"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "args": [
+                                    "--epochs",
+                                    "3",
+                                    "--batch-size",
+                                    "512",
+                                    "--weight-decay",
+                                    "0.1",
+                                    "--image-size",
+                                    "224",
+                                    "--backend",
+                                    "nccl"
+                                ],
+                                "image": "gcr.io/arrikto-playground/dimpo/ranzcr-dist:latest",
+                                "name": "pytorch"
+                            }
+                        ]
+                    }
+                }
+            },
+            "Worker": {
+                "replicas": 1,
+                "restartPolicy": "OnFailure",
+                "template": {
+                    "metadata": {
+                        "annotations": {
+                            "sidecar.istio.io/inject": "false"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "args": [
+                                    "--epochs",
+                                    "3",
+                                    "--batch-size",
+                                    "512",
+                                    "--weight-decay",
+                                    "0.1",
+                                    "--image-size",
+                                    "224",
+                                    "--backend",
+                                    "nccl"
+                                ],
+                                "image": "gcr.io/arrikto-playground/dimpo/ranzcr-dist:latest",
+                                "name": "pytorch",
+                                "resources": {
+                                    "limits": {
+                                        "nvidia.com/gpu": 1
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}
