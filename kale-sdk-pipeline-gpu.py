@@ -1,8 +1,9 @@
-import sys
-sys.path.append('./.local/lib/python3.6/site-packages/')
 
-
+# import sys
+# sys.path.append('./.local/lib/python3.6/site-packages/')
+# import kale
 from kale.sdk import pipeline, step
+
 
 @step(name="data_processing")
 def process(timestamp):
@@ -23,7 +24,6 @@ def validate(train_data, validate_data):
 
 @step(name="model_training")
 def train(train_data, validate_data, training_iterations):
-    from local_package import Model
 
     model = Model(training_iterations)
     model.train(train_data)
