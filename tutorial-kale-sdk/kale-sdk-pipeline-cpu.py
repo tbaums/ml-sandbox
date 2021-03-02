@@ -1,7 +1,7 @@
 
 from kale.sdk import pipeline, step
 
-@step(name="my_step", limits={"nvidia.com/gpu": "1"})
+@step(name="my_step")
 def foo(a):
     # Using a relative import to another local script will work as long as
     # you are using rok to snapshot the current environment and mount a clone
