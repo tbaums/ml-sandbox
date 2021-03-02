@@ -1,7 +1,7 @@
 
 from kale.sdk import pipeline, step
 
-@step(name="my_step", limits={"nvidia.com/gpu": "1"})
+@step(name="gpu_step", limits={"nvidia.com/gpu": "1"})
 def foo(a):
     # Using a relative import to another local script will work as long as
     # you are using rok to snapshot the current environment and mount a clone
@@ -23,7 +23,7 @@ def foo2(b, c):
 def foo3(b, c):
     print(b + c)
 
-@pipeline(name="test-pipeline",
+@pipeline(name="test-gpu-pipeline",
           experiment="kale-sdk-tutorial")
 def my_pipeline(parameter="input"):
     data1, data2 = foo(parameter)
