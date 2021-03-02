@@ -1,44 +1,35 @@
 
-# import sys
-# sys.path.append('./.local/lib/python3.6/site-packages/')
-# import kale
 from kale.sdk import pipeline, step
 
+@step(name="my_step")
+def foo(a):
+    # Using a relative import to another local script will work as long as
+    # you are using rok to snapshot the current environment and mount a clone
+    # of the volume in the pipeline step:
+    # from .script import bar
+    import sys
+    sys.stdout.write(a)
+    # return multiple values. These could be used by different subsequent
+    # pipeline steps.
+    return "Some", "Data"
 
-@step(name="data_processing")
-def process(timestamp):
-    import remote_service_lib
-    from local_package import data_processor
 
-    data = remote_service_lib.get_data(timestamp)
-    train, validate = data_processor(data)
-    return train, validate
+@step(name="second_step")
+def foo2(b, c):
+    print(b + c)
 
-@step(name="data_validation")
-def validate(train_data, validate_data):
-    from local_package import data_validator
 
-    # data_validator raises an exception if data is not valid
-    train, validate = data_validator(train_data, validate_data)
-    return train, validate
+@step(name="third_step")
+def foo3(b, c):
+    print(b + c)
 
-@step(name="model_training")
-def train(train_data, validate_data, training_iterations):
+@pipeline(name="test-pipeline",
+          experiment="kale-sdk-tutorial")
+def my_pipeline(parameter="input"):
+    data1, data2 = foo(parameter)
+    foo2(data1, parameter)
+    foo3(data2, parameter)
 
-    model = Model(training_iterations)
-    model.train(train_data)
-    print(model.predict(validate_data))
-    
-@pipeline(name="model_training", experiment="kale_sdk_pipeline")  
-def ml_experiment(ts, iters):
-  train, validate = process(ts)
-  train_valid, validate_valid = validate(train, validate)
-  train(train_valid, validate_valid, iters)
 
 if __name__ == "__main__":
-  # Note: reading arguments directly from `sys.argv` is not a good
-  # practice in general. Consider using some specific library, like
-  # `argparse`
-  ts = sys.argv[1]
-  iters = sys.argv[2]
-  ml_experiments(ts="...", iters=10)
+    my_pipeline(parameter="example-param")
