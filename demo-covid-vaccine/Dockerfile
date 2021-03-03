@@ -6,7 +6,7 @@ RUN chown jovyan /home/tmp
 WORKDIR /home/tmp
 ADD * ./
 RUN pip3 install --upgrade pip
-USER joyvan 
+USER jovyan 
 RUN pip3 install -r requirements.txt --target=/usr/local/bin
 RUN rm ./Dockerfile
 RUN rm ./docker-build-and-push.sh
