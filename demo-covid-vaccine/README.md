@@ -15,16 +15,18 @@ This demo showcases:
 ## Pre-demo preparation
 
 1. Create 2 instances of MiniKF, each in a different GCP region.
-1. Once fully deployed, log in to both instances and change cookie to remove `Strict`. This is required to prevent an auth infinite loop when connecting to Registry.
-    - Right click...
+1. Cluster 1 and Cluster 2: Once fully deployed, log in to both instances and change cookie to remove `Strict`. This is required to prevent an auth infinite loop when connecting to Registry.
+    - On Chrome, right click on the Kubeflow UI and select "Inspect".
+    - Select the "Application" tab from the DevTools window that opens.
+    - In the Storage section in the left navigation bar, open the Cookies folder.
+    - Select the cookie for your instance.
+    - Double click the "SameSite" column for the `authservice_session` cookie, then hit backspace and enter. 
+    - Refresh the page and confirm that hthe SameSite column remains blank.
 1. Cluster 1: Launch a new notebook server called `vaccine-demo `using the custom image below:
-    - `tbaums/vaccine-demo:2021-03-03`
+    - `tbaums/vaccine-demo:2021-03-04`
 1. Cluster 1: Launch a second new notebook server called `vaccine-serve` using the custom image below:
-    - `tbaums/vaccine-demo:2021-03-03`
+    - `tbaums/vaccine-demo:2021-03-04`
 1. Cluster 1: Create a new published Rok bucket called `vaccine-shared` and complete connect and publish process with your Registry instance.
-1. Cluster 1: Confirm `vaccine-demo` and `vaccine-serve` notebooks have deployed successfully, then run the commands below to move the demo files into the notebooks' $HOME directories (See footnote [1] below):
-    - `kubectl exec -it -n kubeflow-user vaccine-demo-0 -- cp -a /home/tmp/. /home/jovyan/`
-    - `kubectl exec -it -n kubeflow-user vaccine-serve-0 -- cp -a /home/tmp/. /home/jovyan/`
 1. Cluster 1: Connect to the `vaccine-serve` notebook server 
     - Open `vaccine-degradation-serve.ipynb` notebook file from the file browser on left.
     - Select "Run" from the top menu, then "Run all cells."
@@ -34,5 +36,5 @@ This demo showcases:
     - Click "Enable" toggle.
     - Click "Compile and run Katib job"
 
-## Footnotes
-1. We must move the demo files _after_ deploying the notebook server because the Jupyter file explerer UI can only display subdirectories and files in `/home/jovyan`. This is also the mount point for the Rok PVC. If we use the Dockerfile to move the files to `/home/jovyan` when building the image, they will be overwritten by the clean PVC mounted to `/home/jovyan`.
+<!-- ## Footnotes -->
+

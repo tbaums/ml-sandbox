@@ -5,8 +5,10 @@ RUN mkdir /home/tmp
 RUN chown jovyan /home/tmp
 WORKDIR /home/tmp
 ADD * ./
-RUN pip3 install --upgrade pip
 USER jovyan 
-RUN pip3 install -r requirements.txt --target=/usr/local/bin
 RUN rm ./Dockerfile
 RUN rm ./docker-build-and-push.sh
+CMD ["sh", "-c", "cp /home/tmp/* /home/jovyan/; pip3 install -r /home/jovyan/requirements.txt; jupyter lab --notebook-dir=/home/jovyan --ip=0.0.0.0 \
+    --no-browser --allow-root --port=8888 --LabApp.token='' \
+    --LabApp.password='' --LabApp.allow_origin='*' \
+    --LabApp.base_url=${NB_PREFIX}"]
