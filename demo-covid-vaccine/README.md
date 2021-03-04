@@ -22,6 +22,7 @@ This demo showcases:
     - Select the cookie for your instance.
     - Double click the "SameSite" column for the `authservice_session` cookie, then hit backspace and enter. 
     - Refresh the page and confirm that hthe SameSite column remains blank.
+    - ![samesite-example](../assets/samesite.png)
 1. Cluster 1: Launch a new notebook server called `vaccine-demo `using the custom image below:
     - `tbaums/vaccine-demo:2021-03-04`
 1. Cluster 1: Launch a second new notebook server called `vaccine-serve` using the custom image below:
