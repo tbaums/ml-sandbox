@@ -5,3 +5,4 @@ Table of Contents
 - Tutorial: [How to create a Distributed PyTorchJob using GPU with Kale](/tutorial-distributed-pytorch)
 - Demo: [COVID-19 Vaccine - mRNA degradation prediction](/demo-covid-vaccine)
 - Tutorial: [Pipeline creation using the Kale SDK](/tutorial-kale-sdk)
+- Codelab Tutorial: [Medical image classification for disease diagnosis](/tutorial-medical-image-class/)
