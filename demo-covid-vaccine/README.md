@@ -2,9 +2,9 @@
 
 ## Overview
 
-Demo runtime: 10 mins
-
 Demo preptime: 60 mins **minimum**
+
+Demo runtime: 10 mins
 
 This demo showcases:
 - JWA: Self-service notebook provisioning for end users (data scientists/data engineers)
