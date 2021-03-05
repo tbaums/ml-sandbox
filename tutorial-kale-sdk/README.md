@@ -10,7 +10,7 @@ This tutorial walks you through the process of creating a Rok-enhanced Kubeflow 
 3. Download the Kale SDK example from GitHub.
   - `curl -O https://raw.githubusercontent.com/tbaums/ml-sandbox/main/tutorial-kale-sdk/kale-sdk-pipeline-cpu.py`
 4. Run the example.
-  - 'python3 kale-sdk-pipeline-cpu.py --kfp`
+  - `python3 kale-sdk-pipeline-cpu.py --kfp`
 5. Visit the Pipelines tab in the Kubeflow UI to monitor your pipeline execution.
 
 #### GPU-accelerated Pipeline Example
@@ -21,5 +21,5 @@ This tutorial walks you through the process of creating a Rok-enhanced Kubeflow 
 3. Download the Kale SDK example from GitHub.
   - `curl -O https://raw.githubusercontent.com/tbaums/ml-sandbox/main/tutorial-kale-sdk/kale-sdk-pipeline-gpu.py`
 4. Run the example.
-  - 'python3 kale-sdk-pipeline-gpu.py --kfp`
+  - `python3 kale-sdk-pipeline-gpu.py --kfp`
 5. Visit the Pipelines tab in the Kubeflow UI to monitor your pipeline execution.
