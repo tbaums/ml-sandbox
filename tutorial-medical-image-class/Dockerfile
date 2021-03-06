@@ -3,8 +3,11 @@ USER root
 RUN echo "alias l='ls -alh'" >> /etc/bash.bashrc
 RUN mkdir /home/tmp
 RUN chown jovyan /home/tmp
+RUN apt-get update
+RUN apt-get install ffmpeg libsm6 libxext6  -y
 WORKDIR /home/tmp
 ADD requirements.txt ./
+ADD nb* ./
 USER jovyan 
 CMD ["sh", "-c", "cp /home/tmp/* /home/jovyan/; \
     pip3 install -r /home/jovyan/requirements.txt; \
