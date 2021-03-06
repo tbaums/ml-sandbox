@@ -13,6 +13,11 @@ This demo showcases:
 - KFServing: Self-service deployment of models by end users; Models UI features for logging and monitoring.
 - Rok Registry: Portability of complete environments to enable internal or external collaboratoration.
 
+## Prerequisites
+
+This demo assumes you have access to an instance of Rok Registry to which you can connect new Roks and publish/subscribe to buckets. If you do not have a Rok Registry instance, simply skip any steps that refer to Rok Registry.
+
+
 ## Pre-demo preparation
 
 1. Create 2 instances of MiniKF, each in a different GCP region.
