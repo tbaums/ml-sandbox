@@ -4,6 +4,7 @@ RUN echo "alias l='ls -alh'" >> /etc/bash.bashrc
 RUN mkdir /home/tmp
 RUN chown jovyan /home/tmp
 RUN apt-get update
+# packages below are required for CV2 Python library
 RUN apt-get install ffmpeg libsm6 libxext6  -y
 WORKDIR /home/tmp
 ADD requirements.txt ./
