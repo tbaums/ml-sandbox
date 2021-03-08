@@ -2,3 +2,4 @@
 .DS_Store
 *.zip
 tutorial-medical-image-class/data
+*.npy
