@@ -13,8 +13,9 @@ USER jovyan
 CMD ["sh", "-c", "cp /home/tmp/* /home/jovyan/; \
     pip3 install -r /home/jovyan/requirements.txt; \
     mkdir /home/jovyan/data; \
-    gsutil cp gs://mtanenbaum/tutorial-medical-image-class/breast-histopathology-images.zip /home/jovyan/data; \
-    unzip /home/jovyan/data/breast-histopathology-images.zip -d /home/jovyan/data; \  
+    gsutil cp gs://mtanenbaum/tutorial-medical-image-class/processed_images.pkl /home/jovyan/; \
+    gsutil cp gs://mtanenbaum/tutorial-medical-image-class/images_sample.tar /home/jovyan/data/; \
+    tar -xvf /home/jovyan/data/images_sample.tar; \
     jupyter lab --notebook-dir=/home/jovyan --ip=0.0.0.0 \
     --no-browser --allow-root --port=8888 --LabApp.token='' \
     --LabApp.password='' --LabApp.allow_origin='*' \
