@@ -1,4 +1,5 @@
-FROM gcr.io/arrikto/jupyter-kale:4a5d7e63-9f74f267
+# FROM gcr.io/arrikto/jupyter-kale:4a5d7e63-9f74f267
+FROM gcr.io/arrikto/jupyter-kale:1.1-pre-328-g657cbfb749
 USER root
 RUN echo "alias l='ls -alh'" >> /etc/bash.bashrc
 RUN mkdir /home/tmp
