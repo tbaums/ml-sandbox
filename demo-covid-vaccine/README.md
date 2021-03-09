@@ -20,15 +20,7 @@ This demo assumes you have access to an instance of Rok Registry to which you ca
 
 ## Pre-demo preparation
 
-1. Create 2 instances of MiniKF, each in a different GCP region.
-1. Cluster 1 and Cluster 2: Once fully deployed, log in to both instances and change cookie to remove `Strict`. This is required to prevent an auth infinite loop when connecting to Registry.
-    - On Chrome, right click on the Kubeflow UI and select "Inspect".
-    - Select the "Application" tab from the DevTools window that opens.
-    - In the Storage section in the left navigation bar, open the Cookies folder.
-    - Select the cookie for your instance.
-    - Double click the "SameSite" column for the `authservice_session` cookie, then hit backspace and enter. 
-    - Refresh the page and confirm that hthe SameSite column remains blank.
-    - ![samesite-example](../assets/samesite.png)
+
 1. Cluster 1: Launch a new notebook server called `vaccine-demo `using the custom image below:
     - `tbaums/vaccine-demo-del:6a557e9-202103091003`
 1. Cluster 1: Launch a second new notebook server called `vaccine-serve` using the custom image below:
