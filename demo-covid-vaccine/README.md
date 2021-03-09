@@ -30,9 +30,9 @@ This demo assumes you have access to an instance of Rok Registry to which you ca
     - Refresh the page and confirm that hthe SameSite column remains blank.
     - ![samesite-example](../assets/samesite.png)
 1. Cluster 1: Launch a new notebook server called `vaccine-demo `using the custom image below:
-    - `tbaums/vaccine-demo:2021-03-04`
+    - `tbaums/vaccine-demo-del:6a557e9-202103091003`
 1. Cluster 1: Launch a second new notebook server called `vaccine-serve` using the custom image below:
-    - `tbaums/vaccine-demo:2021-03-04`
+    - `tbaums/vaccine-demo-del:6a557e9-202103091003`
 1. Cluster 1: Create a new published Rok bucket called `vaccine-shared` and complete connect and publish process with your Registry instance.
 1. Cluster 1: Connect to the `vaccine-serve` notebook server 
     - Open `vaccine-degradation-serve.ipynb` notebook file from the file browser on left.
