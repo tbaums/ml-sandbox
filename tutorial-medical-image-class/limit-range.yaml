@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: nb-limit-range
+  namespace: kubeflow-user
+spec:
+  limits:
+  - default:
+      cpu: 3 
+      memory: "16Gi"
+    type: Container
+  

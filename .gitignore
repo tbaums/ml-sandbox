@@ -1,6 +1,6 @@
 
 .DS_Store
 *.zip
-tutorial-medical-image-class/data
+tutorial-medical-image-class/data/
 *.npy
 */.vscode
