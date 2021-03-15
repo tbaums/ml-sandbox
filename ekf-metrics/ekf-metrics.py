@@ -1,4 +1,5 @@
 from kubernetes import client, config
+import kubernetes 
 
 # Configs can be set in Configuration class directly or using helper utility
 configuration = kubernetes.client.Configuration()
