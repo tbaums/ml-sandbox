@@ -1,10 +1,6 @@
-FROM python:3.8
+FROM gcr.io/arrikto/jupyter-kale:4a5d7e63-9f74f267	
 USER root
 RUN echo "alias l='ls -alh'" >> /etc/bash.bashrc
-RUN mkdir -p $HOME/.kube 
-ADD ./config $HOME/.kube/
-ADD ./client* $HOME/.kube/
-ADD ./ca.crt $HOME/.kube/
 RUN pip3 install --user kubernetes 
 ADD ekf-metrics.py ./
-CMD ["python3", "ekf-metrics.py"]
+CMD ["sh", "-c", "kubectl get po -A"]
