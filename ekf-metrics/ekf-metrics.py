@@ -1,5 +1,6 @@
 from kubernetes import client, config
 import kubernetes 
+from kubernetes.client.rest import ApiException
 
 # Configs can be set in Configuration class directly or using helper utility
 configuration = kubernetes.client.Configuration()

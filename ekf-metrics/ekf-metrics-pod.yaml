@@ -3,13 +3,13 @@ kind: Pod
 metadata: 
   name: ekf-metrics
   namespace: kubeflow-user # <change to Mariam's namespace>
-  annotations:
-        sidecar.istio.io/inject: "false"
+  # annotations:
+        # sidecar.istio.io/inject: "false"
 spec:
   serviceAccountName: ekf-metrics
   containers:
   - name: ekf-metrics
-    image: tbaums/ekf-metrics:bb08d8d-202103151523
+    image: tbaums/ekf-metrics:d7d6db4-202103151526
     imagePullPolicy: Always
     volumeMounts:
     - name: ekf-metrics-pvc
