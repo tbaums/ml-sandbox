@@ -14,9 +14,9 @@ spec:
     imagePullPolicy: Always
     readinessProbe:
       httpGet:
-      path: /
-      port: 80
-      scheme: HTTP
+        path: /
+        port: 80
+        scheme: HTTP
     volumeMounts:
     - name: ekf-metrics-pvc
       mountPath: /ekf-metrics
