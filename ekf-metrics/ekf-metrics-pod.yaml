@@ -7,7 +7,7 @@ spec:
   serviceAccountName: ekf-metrics
   containers:
   - name: ekf-metrics
-    image: tbaums/ekf-metrics:2df50f6-202103151346
+    image: tbaums/ekf-metrics:2df50f6-202103151457
     imagePullPolicy: Always
     volumeMounts:
     - name: ekf-metrics-pvc
