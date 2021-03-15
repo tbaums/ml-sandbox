@@ -10,7 +10,7 @@ spec:
   serviceAccountName: ekf-metrics
   containers:
   - name: ekf-metrics
-    image: tbaums/ekf-metrics:d24a3ad-202103151640
+    image: tbaums/ekf-metrics:26577a3-202103151632
     imagePullPolicy: Always
     readinessProbe:
       httpGet:
