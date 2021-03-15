@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+ name: ekf-metrics-pvc
+ namespace: kubeflow-user
+spec:
+ accessModes:
+ - ReadWriteOnce
+ resources:
+   requests:
+     storage: 1Gi
+ storageClassName: rok
