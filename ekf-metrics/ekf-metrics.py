@@ -3,6 +3,8 @@ from kubernetes import client, config
 
 # Configs can be set in Configuration class directly or using helper utility
 config.load_kube_config()
+config.assert_hostname = False                                     
+
 
 v1 = client.CoreV1Api()
 print("Listing pods with their IPs:")
