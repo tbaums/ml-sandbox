@@ -1,19 +1,11 @@
+import kuberenetes
 from kubernetes import client, config
-import kubernetes 
-from kubernetes.client.rest import ApiException
 
 # Configs can be set in Configuration class directly or using helper utility
-configuration = kubernetes.client.Configuration()
+config.load_kube_config()
 
-configuration.host = "https://10.96.0.1" # set to kubernetes API server cluster IP
-
-# Enter a context with an instance of the API kubernetes.client
-with kubernetes.client.ApiClient(configuration) as api_client:
-    api_instance = kubernetes.client.AdmissionregistrationApi(api_client)
-    
-    try:
-        api_response = api_instance.get_api_group()
-        print(api_response)
-    except ApiException as e:
-        print("Exception when calling AdmissionregistrationApi->get_api_group: %s\n" % e)
-    
+v1 = client.CoreV1Api()
+print("Listing pods with their IPs:")
+ret = v1.list_pod_for_all_namespaces(watch=False)
+for i in ret.items:
+    print("%s\t%s\t%s" % (i.status.pod_ip, i.metadata.namespace, i.metadata.name))
