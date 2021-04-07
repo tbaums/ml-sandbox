@@ -71,7 +71,6 @@ jupyterlab-server==1.2.0
 kaggle==1.5.12
 Keras-Preprocessing==1.1.2
 keystoneauth1==4.2.1
-kfp @ file:///kfp-sdk
 kfp-pipeline-spec==0.1.2
 kfp-server-api==1.0.4
 kfserving==0.4.1
